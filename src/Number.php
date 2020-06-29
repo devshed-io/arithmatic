@@ -4,7 +4,7 @@ namespace Devshed\Arithmatic;
 
 class Number
 {
-    public int $value;
+    public $value;
 
     /**
      * Number constructor.
