@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  php:
+    container_name: php
+    build:
+      context: ./
+      dockerfile: ./images/php.dockerfile
+    image: newobc/muscovite-php-fpm
+    ports:
+      - 9000:9000
+    expose:
+      - 9000
+    volumes:
+      - ./app:/var/www
+    restart: unless-stopped
+    networks:
+      - backend

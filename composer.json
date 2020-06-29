@@ -1,0 +1,23 @@
+{
+    "name": "devshed-io/chainable-arithmetic-php",
+    "description": "Chainable math methods in php",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Charles Bowen",
+            "email": "charlesrbowen93@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"Devshed\\Arithmatic\\": "src/"}
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "nunomaduro/collision": "^5.0",
+        "pestphp/pest": "^0.2.2"
+    }
+}
