@@ -51,3 +51,9 @@ it('performs rounding', function () {
 
     assertEquals(2.0, $number->output());
 });
+
+it('can be coerced to the expected output', function () {
+    $number = Arithmatic::start(10);
+
+    assertEquals(10, (string) $number);
+});

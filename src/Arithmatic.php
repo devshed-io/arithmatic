@@ -106,4 +106,14 @@ class Arithmatic
     {
         return $this->value;
     }
+
+    /**
+     * Coerce the class value to a string
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->output();
+    }
 }
