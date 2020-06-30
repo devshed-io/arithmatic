@@ -19,21 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a5199f-4f4c-4c1f-ac66-da6f049a3aaf" name="Default Changelist" comment="">
+    <list default="true" id="69a5199f-4f4c-4c1f-ac66-da6f049a3aaf" name="Default Changelist" comment="feat: Added methods&#10;&#10;Output&#10;Divide&#10;Round&#10;percentageChange&#10;&#10;Added fluent instantiation methods: make,start&#10;&#10;Renamed package to be more sexy">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/charles.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Number.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Number.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ExampleTest.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable path="composer" />
@@ -96,6 +99,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/devshed-io/cascade-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dz83xwmEe5z5Jd3zNtkKA3z8AE" />
@@ -111,9 +115,10 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../core-code" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="PHP&#10;TEXT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cascade-php" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,8 +146,39 @@
       <updated>1593416365606</updated>
       <workItem from="1593416366751" duration="1576000" />
       <workItem from="1593431274155" duration="3247000" />
-      <workItem from="1593435172173" duration="5574000" />
+      <workItem from="1593435172173" duration="8111000" />
+      <workItem from="1593460738283" duration="1079000" />
+      <workItem from="1593494500263" duration="4397000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: Remove redundant docker-compose.yaml">
+      <created>1593456233921</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1593456233921</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chore: Workspace settings">
+      <created>1593456259080</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593456259080</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix: php language level to 7.2">
+      <created>1593456272690</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1593456272690</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Added methods&#10;&#10;Output&#10;Divide&#10;Round&#10;percentageChange&#10;&#10;Added fluent instantiation methods: make,start&#10;&#10;Renamed package to be more sexy">
+      <created>1593499410348</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1593499410348</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,20 +198,33 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="fix: Remove redundant docker-compose.yaml" />
+    <MESSAGE value="chore: Workspace settings" />
+    <MESSAGE value="fix: php language level to 7.2" />
+    <MESSAGE value="feat: Added methods&#10;&#10;Output&#10;Divide&#10;Round&#10;percentageChange&#10;&#10;Added fluent instantiation methods: make,start&#10;&#10;Renamed package to be more sexy" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Added methods&#10;&#10;Output&#10;Divide&#10;Round&#10;percentageChange&#10;&#10;Added fluent instantiation methods: make,start&#10;&#10;Renamed package to be more sexy" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="3469" y="401" width="732" height="644" key="#Inspections" timestamp="1593456576085">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3469" y="401" width="732" height="644" key="#Inspections/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456576085" />
     <state x="3648" y="439" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1593435014881">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3648" y="439" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593435014881" />
+    <state x="3479" y="0" width="712" height="1440" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1593498842720">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3479" y="0" width="712" height="1440" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593498842720" />
     <state x="3573" y="634" width="523" height="178" key="ComposerInitDialogKey" timestamp="1593439904760">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3573" y="634" width="523" height="178" key="ComposerInitDialogKey/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593439904760" />
-    <state x="3623" y="478" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593437189444">
+    <state x="3623" y="478" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593457845079">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="3623" y="478" width="424" height="491" key="FileChooserDialogImpl/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593437189444" />
+    <state x="3623" y="478" width="424" height="491" key="FileChooserDialogImpl/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593457845079" />
     <state x="3546" y="439" width="577" height="575" key="NewPhpClassDialog" timestamp="1593434737818">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
@@ -184,17 +233,33 @@
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3635" y="645" width="399" height="156" key="NewPhpFileDialog/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593434842194" />
+    <state x="3587" y="403" width="496" height="640" key="RollbackChangesDialog" timestamp="1593499503010">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3587" y="403" width="496" height="640" key="RollbackChangesDialog/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593499503010" />
     <state x="3329" y="355" width="1022" height="737" key="SettingsEditor" timestamp="1593456188716">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3329" y="355" width="1022" height="737" key="SettingsEditor/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456188716" />
-    <state x="3531" y="459" width="618" height="522" key="find.popup" timestamp="1593435082426">
+    <state x="3445" y="500" width="780" height="446" key="VCS.ChangelistChooser" timestamp="1593499421426">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="3531" y="459" width="618" height="522" key="find.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593435082426" />
-    <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup" timestamp="1593456181505">
+    <state x="3445" y="500" width="780" height="446" key="VCS.ChangelistChooser/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593499421426" />
+    <state x="3435" y="456" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1593499413115">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456181505" />
+    <state x="3435" y="456" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593499413115" />
+    <state x="2660" y="100" width="2360" height="1240" key="dock-window-1" timestamp="1593498876977">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="2660" y="100" width="2360" height="1240" key="dock-window-1/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593498876977" />
+    <state x="3531" y="459" width="618" height="522" key="find.popup" timestamp="1593456600816">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3531" y="459" width="618" height="522" key="find.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456600816" />
+    <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup" timestamp="1593499446199">
+      <screen x="2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593499446199" />
   </component>
 </project>
