@@ -1,61 +1,58 @@
 <?php
 
+namespace Devshed\Arithmatic\Tests;
+
 use Devshed\Arithmatic\Arithmatic;
+use PHPUnit\Framework\TestCase;
 
-it('starts with an integer', function () {
-    assertEquals(5, Arithmatic::start(5)->output());
-    assertEquals(10, Arithmatic::make(10)->output());
-});
+class ArithmaticTest extends TestCase
+{
+    public function testItStartsWithANumber()
+    {
+        $this->assertEquals(5, Arithmatic::start(5)->output());
+        $this->assertEquals(10, Arithmatic::make(10)->output());
+    }
 
-it('provides an output', function () {
-    $number = new Arithmatic(5);
+    public function testItProvidesAnOutput()
+    {
+        $number = new Arithmatic(5);
 
-    assertTrue(method_exists($number, 'output'));
-});
+        $this->assertTrue(method_exists($number, 'output'));
+    }
 
+    public function testItPerformsAddition()
+    {
+        $number = Arithmatic
+            ::start(5)
+            ->add(5);
 
-it('performs addition', function () {
-    $number = Arithmatic
-        ::start(5)
-        ->add(5);
+        $this->assertEquals(10, $number->output());
+    }
 
-    assertEquals(10, $number->output());
-});
+    public function testItPerformsSubtraction()
+    {
+        $number = Arithmatic
+            ::start(5)
+            ->subtract(2);
 
-it('performs subtraction', function () {
-    $number = Arithmatic
-        ::start(5)
-        ->subtract(2);
+        $this->assertEquals(3, $number->output());
+    }
 
-    assertEquals(3, $number->output());
-});
+    public function testItPerformsDivision()
+    {
+        $number = Arithmatic::start(5)->divide(2);
 
-it('performs division', function () {
-    $number = Arithmatic::start(5)->divide(2);
+        $this->assertEquals(2.5, $number->output());
+    }
 
-    assertEquals(2.5, $number->output());
-});
+    public function testItPerformsPercentageChange()
+    {
+        $number = Arithmatic::start(100)->percentageChange(80);
 
-it('performs percentage change', function () {
-    $number = Arithmatic::start(100)->percentageChange(80);
+        $this->assertEquals(25.0, $number->output());
 
-    assertEquals(25.0, $number->output());
+        $number = Arithmatic::start(100)->percentageChange(125);
 
-    $number = Arithmatic::start(100)->percentageChange(125);
-
-    assertEquals(-20.0, $number->output());
-});
-
-it('performs rounding', function () {
-    $number = Arithmatic::start(1.5)->round();
-
-    assertEquals(2.0, $number->output());
-});
-
-it('can be coerced to the expected output', function () {
-    $number = Arithmatic
-        ::start(10)
-        ->percentageChange(Arithmatic::start(20));
-
-    assertEquals(-50, (string) $number);
-});
+        $this->assertEquals(-20.0, $number->output());
+    }
+}
