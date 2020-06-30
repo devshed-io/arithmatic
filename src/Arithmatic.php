@@ -2,6 +2,15 @@
 
 namespace Devshed\Arithmatic;
 
+
+use Devshed\Arithmatic\Exceptions\BadMethodCallException;
+
+/**
+ * @method Arithmatic percentageChange($value)
+ * @method Arithmatic divide($value)
+ * @method Arithmatic subtract($value)
+ * @method Arithmatic add($value)
+ */
 class Arithmatic
 {
     protected $value;
@@ -19,7 +28,7 @@ class Arithmatic
     /**
      * @param int|float $value
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
     public static function start($value)
     {
@@ -29,7 +38,7 @@ class Arithmatic
     /**
      * @param int|float $value
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
     public static function make($value)
     {
@@ -39,9 +48,9 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $value
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
-    public function add($value)
+    public function callAdd($value)
     {
         if ($value instanceof Arithmatic) { // Todo: Piped call ?
             $value = $value->output();
@@ -55,9 +64,9 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $value
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
-    public function subtract($value)
+    public function callSubtract($value)
     {
         if ($value instanceof Arithmatic) { // Todo: Piped call ?
             $value = $value->output();
@@ -71,9 +80,9 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $by
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
-    public function divide($by)
+    public function callDivide($by)
     {
         if ($by instanceof Arithmatic) { // Todo: Piped call ?
             $by = $by->output();
@@ -87,9 +96,9 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $from
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
-    public function percentageChange($from)
+    public function callPercentageChange($from)
     {
         if ($from instanceof Arithmatic) { // Todo: Piped call ?
             $from = $from->output();
@@ -104,7 +113,7 @@ class Arithmatic
      * @param int $precision
      * @param int $mode
      *
-     * @return \Devshed\Arithmatic\Arithmatic
+     * @return Arithmatic
      */
     public function round(int $precision = 0, $mode = PHP_ROUND_HALF_UP)
     {
@@ -124,12 +133,21 @@ class Arithmatic
     }
 
     /**
-     * Coerce the class value to a string
+     * @param $name
+     * @param $arguments
      *
-     * @return string
+     * @return mixed
+     *
+     * @throws BadMethodCallException
      */
-    public function __toString()
+    public function __call($name, $arguments)
     {
-        return (string) $this->output();
+        $method = 'call' . ucfirst($name);
+
+        if (method_exists($this, $method)) {
+            return $this->$method(...$arguments);
+        }
+
+        throw BadMethodCallException::badMethodCall($name);
     }
 }
