@@ -1,6 +1,6 @@
 <?php
 
-namespace Devshed\Arithmatic\Tests;
+namespace Devshed\Arithmatic\Tests\Unit;
 
 use Devshed\Arithmatic\Arithmatic;
 use PHPUnit\Framework\TestCase;
@@ -54,6 +54,14 @@ class ArithmaticTest extends TestCase
         $number = Arithmatic::start(100)->percentageChange(125);
 
         $this->assertEquals(-20.0, $number->output());
+    }
+
+    public function testItPerformsMultiplication()
+    {
+        $this->assertEquals(
+            12,
+            Arithmatic::make(4)->multiply(3)->output()
+        );
     }
 
     public function testItRoundsAValue()

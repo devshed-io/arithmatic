@@ -19,12 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a5199f-4f4c-4c1f-ac66-da6f049a3aaf" name="Default Changelist" comment="feat: Added methods&#10;&#10;Output&#10;Divide&#10;Round&#10;percentageChange&#10;&#10;Added fluent instantiation methods: make,start&#10;&#10;Renamed package to be more sexy">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/charles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="69a5199f-4f4c-4c1f-ac66-da6f049a3aaf" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Arithmatic.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Arithmatic.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit/ArithmaticTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Unit/ArithmaticTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +52,7 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
@@ -129,8 +133,12 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
+      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner scope="XML" />
+      <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" />
       <method v="2" />
     </configuration>
   </component>
@@ -209,6 +217,10 @@
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3469" y="401" width="732" height="644" key="#Inspections/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456576085" />
+    <state x="667" y="164" key="#PHP" timestamp="1593549497752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="164" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1593549497752" />
     <state x="3648" y="439" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1593435014881">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
@@ -217,6 +229,10 @@
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3479" y="0" width="712" height="1440" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593498842720" />
+    <state x="642" y="151" key="#phpunit.xml" timestamp="1593549498582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="642" y="151" key="#phpunit.xml/0.0.1920.1040@0.0.1920.1040" timestamp="1593549498582" />
     <state x="3573" y="634" width="523" height="178" key="ComposerInitDialogKey" timestamp="1593439904760">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
@@ -225,6 +241,22 @@
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3623" y="478" width="424" height="491" key="FileChooserDialogImpl/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593457845079" />
+    <state width="1922" height="289" key="GridCell.Tab.0.bottom" timestamp="1593549714541">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1922" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593549714541" />
+    <state width="1922" height="289" key="GridCell.Tab.0.center" timestamp="1593549714540">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1922" height="289" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593549714540" />
+    <state width="1922" height="289" key="GridCell.Tab.0.left" timestamp="1593549714540">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1922" height="289" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593549714540" />
+    <state width="1922" height="289" key="GridCell.Tab.0.right" timestamp="1593549714541">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1922" height="289" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593549714541" />
     <state x="3546" y="439" width="577" height="575" key="NewPhpClassDialog" timestamp="1593434737818">
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
@@ -257,9 +289,10 @@
       <screen x="2560" y="0" width="2560" height="1440" />
     </state>
     <state x="3531" y="459" width="618" height="522" key="find.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593456600816" />
-    <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup" timestamp="1593499446199">
-      <screen x="2560" y="0" width="2560" height="1440" />
+    <state x="709" y="240" width="672" height="490" key="search.everywhere.popup" timestamp="1593549548443">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="709" y="240" width="672" height="490" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1593549548443" />
     <state x="3503" y="329" width="672" height="678" key="search.everywhere.popup/72.27.2488.1413/2560.0.2560.1440@2560.0.2560.1440" timestamp="1593499446199" />
   </component>
 </project>

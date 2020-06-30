@@ -10,6 +10,7 @@ use Devshed\Arithmatic\Exceptions\BadMethodCallException;
  * @method Arithmatic divide($value)
  * @method Arithmatic subtract($value)
  * @method Arithmatic add($value)
+ * @method Arithmatic multiply($int)
  */
 class Arithmatic
 {
@@ -105,6 +106,22 @@ class Arithmatic
         }
 
         $this->value = ($this->value - $from) / $from * 100;
+
+        return $this;
+    }
+
+    /**
+     * @param Arithmatic|int|float $by
+     *
+     * @return Arithmatic
+     */
+    public function callMultiply($by)
+    {
+        if ($by instanceof Arithmatic) { // Todo: Piped call ?
+            $by = $by->output();
+        }
+
+        $this->value = $this->value * $by;
 
         return $this;
     }

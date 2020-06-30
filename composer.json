@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Devshed\\Arithmatic\\": "src/"
+            "Devshed\\Arithmatic\\": "Src/",
+            "Devshed\\Arithmatic\\Tests\\": "Tests/"
         }
     }
 }
