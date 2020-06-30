@@ -55,4 +55,12 @@ class ArithmaticTest extends TestCase
 
         $this->assertEquals(-20.0, $number->output());
     }
+
+    public function testItRoundsAValue()
+    {
+        $number = Arithmatic::make(9.6)
+            ->round();
+
+        $this->assertEquals(10.0, $number->output());
+    }
 }
