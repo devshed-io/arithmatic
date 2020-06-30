@@ -53,7 +53,9 @@ it('performs rounding', function () {
 });
 
 it('can be coerced to the expected output', function () {
-    $number = Arithmatic::start(10);
+    $number = Arithmatic
+        ::start(10)
+        ->percentageChange(Arithmatic::start(20));
 
-    assertEquals(10, (string) $number);
+    assertEquals(-50, (string) $number);
 });

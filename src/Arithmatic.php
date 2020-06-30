@@ -37,48 +37,64 @@ class Arithmatic
     }
 
     /**
-     * @param int|float $int
+     * @param Arithmatic|int|float $value
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function add($int)
+    public function add($value)
     {
-        $this->value += $int;
+        if ($value instanceof Arithmatic) { // Todo: Piped call ?
+            $value = $value->output();
+        }
+
+        $this->value += $value;
 
         return $this;
     }
 
     /**
-     * @param int|float $int
+     * @param Arithmatic|int|float $value
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function subtract($int)
+    public function subtract($value)
     {
-        $this->value -= $int;
+        if ($value instanceof Arithmatic) { // Todo: Piped call ?
+            $value = $value->output();
+        }
+
+        $this->value -= $value;
 
         return $this;
     }
 
     /**
-     * @param int|float $int
+     * @param Arithmatic|int|float $by
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function divide($int)
+    public function divide($by)
     {
-        $this->value /= $int;
+        if ($by instanceof Arithmatic) { // Todo: Piped call ?
+            $by = $by->output();
+        }
+
+        $this->value /= $by;
 
         return $this;
     }
 
     /**
-     * @param int|float $from
+     * @param Arithmatic|int|float $from
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
     public function percentageChange($from)
     {
+        if ($from instanceof Arithmatic) { // Todo: Piped call ?
+            $from = $from->output();
+        }
+
         $this->value = ($this->value - $from) / $from * 100;
 
         return $this;
