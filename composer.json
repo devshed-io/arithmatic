@@ -1,5 +1,5 @@
 {
-    "name": "devshed-io/chainable-arithmetic-php",
+    "name": "devshed-io/arithmatic",
     "description": "Chainable math methods in php",
     "type": "library",
     "license": "MIT",
