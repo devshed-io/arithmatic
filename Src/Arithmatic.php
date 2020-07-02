@@ -5,7 +5,6 @@ namespace Devshed\Arithmatic;
 
 use Closure;
 use Devshed\Arithmatic\Exceptions\BadMethodCallException;
-use InvalidArgumentException;
 
 /**
  * @method Arithmatic percentageChange($value)
@@ -154,46 +153,52 @@ class Arithmatic
     /**
      * @param mixed $condition
      * @param mixed $callable
+     * @param mixed $fallback
      *
      * @return Arithmatic
      */
-    public function when($condition, $callable)
+    public function when($condition, $callable, $fallback = null)
     {
         if ($condition instanceof Closure) {
             $condition = call_user_func($condition);
         }
 
         if (!$condition) {
-            return $this;
-        }
+            if (is_null($fallback)) {
+                return $this;
+            }
 
-        if ($callable instanceof Closure) {
-            return call_user_func_array($callable, [$this]);
+            return $this->run($fallback);
         }
 
         return $this->run($callable);
-
-//        throw new InvalidArgumentException(
-//            'Unsupported operator method passed in when clause. Parameter must be either a key value array of methods and parameters, or a closure'
-//        );
     }
 
+    /**
+     * @param $methods
+     *
+     * @return Arithmatic
+     *
+     * @throws BadMethodCallException
+     */
     public function run($methods)
     {
-//        var_dump($methods);
+        if ($methods instanceof Closure) {
+            return call_user_func_array($methods, [$this]);
+        }
 
-//        if (is_array($methods)) {
-//            foreach ($methods as $method => $argument) {
-//                var_dump(['method' => $methods, 'argument' => $argument]);
-//                $this->run($method, $argument);
-//            }
-//        }
+        if (is_array($methods)) {
+            foreach ($methods as $method => $argument) {
+                $this->__call(
+                    is_string($method) ? $method : $argument,
+                    is_string($method) ? [$argument] : [],
+                );
+            }
+        } else {
+            $this->__call($methods, []);
+        }
 
-//        var_dump($methods);
-
-//        $method = $this->getInternalMethod($method);
-//
-//        $this->$method($argument);
+        return $this;
     }
 
     /**
@@ -220,6 +225,10 @@ class Arithmatic
      */
     protected function getInternalMethod($name)
     {
+        if (method_exists($this, $name)) {
+            return $name;
+        }
+
         $method = 'call' . ucfirst($name);
 
         if (!method_exists($this, $method)) {

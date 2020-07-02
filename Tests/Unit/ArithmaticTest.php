@@ -76,6 +76,33 @@ class ArithmaticTest extends TestCase
         $this->assertEquals(10.0, $number->output());
     }
 
+    public function testItCanRunStringReferencedMethods()
+    {
+        $number = Arithmatic
+            ::make(9.6)
+            ->run(['round']);
+
+        $this->assertEquals(10, $number->output());
+    }
+
+    public function testItCanRunStringReferencedMethodsWithParameters()
+    {
+        $number = Arithmatic
+            ::make(10)
+            ->run(['add' => 5, 'divide' => 2]);
+
+        $this->assertEquals(7.5, $number->output());
+    }
+
+    public function testItCanRunAStringReferenceMethodConditionally()
+    {
+        $number = Arithmatic
+            ::make(10)
+            ->when(true, ['add' => 5, 'divide' => 2]);
+
+        $this->assertEquals(7.5, $number->output());
+    }
+
     public function testItCanRunAClosureConditionally()
     {
         $number = Arithmatic
@@ -95,21 +122,46 @@ class ArithmaticTest extends TestCase
         $this->assertEquals(10, $number->output());
     }
 
-    public function testItCanRunStringReferencedMethods()
+    public function testItCanRunAConditionalMethodWithAFallback()
     {
         $number = Arithmatic
             ::make(10)
-            ->run(['add' => 5, 'divide' => 2]);
+            ->when(true, ['add' => 5], ['subtract' => 2]);
 
-        $this->assertEquals(7.5, $number->output());
-    }
+        $this->assertEquals(15, $number->output());
 
-    public function testItCanRunAStringReferenceMethodConditionally()
-    {
         $number = Arithmatic
             ::make(10)
-            ->when(true, ['add' => 5, 'divide' => 2]);
+            ->when(false, ['add' => 5], ['subtract' => 2]);
 
-        $this->assertEquals(7.5, $number->output());
+        $this->assertEquals(8, $number->output());
+
+        $number = Arithmatic
+            ::make(10)
+            ->when(
+                false,
+                function (Arithmatic $arithmatic) {
+                    return $arithmatic->add(7);
+                },
+                function (Arithmatic $arithmatic) {
+                    return $arithmatic->subtract(7);
+                },
+            );
+
+        $this->assertEquals(3, $number->output());
+
+        $number = Arithmatic
+            ::make(10)
+            ->when(
+                true,
+                function (Arithmatic $arithmatic) {
+                    return $arithmatic->add(7);
+                },
+                function (Arithmatic $arithmatic) {
+                    return $arithmatic->subtract(7);
+                },
+            );
+
+        $this->assertEquals(17, $number->output());
     }
 }
