@@ -75,4 +75,41 @@ class ArithmaticTest extends TestCase
 
         $this->assertEquals(10.0, $number->output());
     }
+
+    public function testItCanRunAClosureConditionally()
+    {
+        $number = Arithmatic
+            ::make(10)
+            ->when(true, function (Arithmatic $instance) {
+                return $instance->add(5);
+            });
+
+        $this->assertEquals(15, $number->output());
+
+        $number = Arithmatic
+            ::make(10)
+            ->when(false, function (Arithmatic $instance) {
+                return $instance->add(5);
+            });
+
+        $this->assertEquals(10, $number->output());
+    }
+
+    public function testItCanRunStringReferencedMethods()
+    {
+        $number = Arithmatic
+            ::make(10)
+            ->run(['add' => 5, 'divide' => 2]);
+
+        $this->assertEquals(7.5, $number->output());
+    }
+
+    public function testItCanRunAStringReferenceMethodConditionally()
+    {
+        $number = Arithmatic
+            ::make(10)
+            ->when(true, ['add' => 5, 'divide' => 2]);
+
+        $this->assertEquals(7.5, $number->output());
+    }
 }
