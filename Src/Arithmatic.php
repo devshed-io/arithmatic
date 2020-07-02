@@ -105,7 +105,7 @@ class Arithmatic
             $from = $from->output();
         }
 
-        $this->value = ($this->value - $from) / $from * 100;
+        $this->value = ($this->value - $from) / abs($from) * 100;
 
         return $this;
     }

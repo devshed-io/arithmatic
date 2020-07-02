@@ -54,6 +54,10 @@ class ArithmaticTest extends TestCase
         $number = Arithmatic::start(100)->percentageChange(125);
 
         $this->assertEquals(-20.0, $number->output());
+
+        $number = Arithmatic::start(15)->percentageChange(-5);
+
+        $this->assertEquals(400, $number->output());
     }
 
     public function testItPerformsMultiplication()
