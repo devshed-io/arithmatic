@@ -145,7 +145,7 @@ class ArithmaticTest extends TestCase
                 },
                 function (Arithmatic $arithmatic) {
                     return $arithmatic->subtract(7);
-                },
+                }
             );
 
         $this->assertEquals(3, $number->output());
@@ -159,9 +159,21 @@ class ArithmaticTest extends TestCase
                 },
                 function (Arithmatic $arithmatic) {
                     return $arithmatic->subtract(7);
-                },
+                }
             );
 
         $this->assertEquals(17, $number->output());
+
+        $number = Arithmatic
+            ::make(10)
+            ->when(
+                false,
+                function (Arithmatic $arithmatic) {
+                    return $arithmatic->add(7);
+                },
+                100
+            );
+
+        $this->assertEquals(100, $number->output());
     }
 }
