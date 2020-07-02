@@ -3,6 +3,7 @@
 namespace Devshed\Arithmatic;
 
 
+use Closure;
 use Devshed\Arithmatic\Exceptions\BadMethodCallException;
 
 /**
@@ -31,9 +32,9 @@ class Arithmatic
      *
      * @return Arithmatic
      */
-    public static function start($value)
+    public static function make($value)
     {
-        return new self($value);
+        return self::start($value);
     }
 
     /**
@@ -41,9 +42,9 @@ class Arithmatic
      *
      * @return Arithmatic
      */
-    public static function make($value)
+    public static function start($value)
     {
-        return self::start($value);
+        return new self($value);
     }
 
     /**
@@ -60,6 +61,16 @@ class Arithmatic
         $this->value += $value;
 
         return $this;
+    }
+
+    /**
+     * Output the value
+     *
+     * @return int|float
+     */
+    public function output()
+    {
+        return $this->value;
     }
 
     /**
@@ -140,13 +151,54 @@ class Arithmatic
     }
 
     /**
-     * Output the value
+     * @param mixed $condition
+     * @param mixed $callable
+     * @param mixed $fallback
      *
-     * @return int|float
+     * @return Arithmatic
      */
-    public function output()
+    public function when($condition, $callable, $fallback = null)
     {
-        return $this->value;
+        if ($condition instanceof Closure) {
+            $condition = call_user_func($condition);
+        }
+
+        if (!$condition) {
+            if (is_null($fallback)) {
+                return $this;
+            }
+
+            return $this->run($fallback);
+        }
+
+        return $this->run($callable);
+    }
+
+    /**
+     * @param $methods
+     *
+     * @return Arithmatic
+     *
+     * @throws BadMethodCallException
+     */
+    public function run($methods)
+    {
+        if ($methods instanceof Closure) {
+            return call_user_func_array($methods, [$this]);
+        }
+
+        if (is_array($methods)) {
+            foreach ($methods as $method => $argument) {
+                $this->__call(
+                    is_string($method) ? $method : $argument,
+                    is_string($method) ? [$argument] : [],
+                );
+            }
+        } else {
+            $this->__call($methods, []);
+        }
+
+        return $this;
     }
 
     /**
@@ -159,12 +211,30 @@ class Arithmatic
      */
     public function __call($name, $arguments)
     {
-        $method = 'call' . ucfirst($name);
+        $method = $this->getInternalMethod($name);
 
-        if (method_exists($this, $method)) {
-            return $this->$method(...$arguments);
+        return $this->$method(...$arguments);
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return string
+     *
+     * @throws \Devshed\Arithmatic\Exceptions\BadMethodCallException
+     */
+    protected function getInternalMethod($name)
+    {
+        if (method_exists($this, $name)) {
+            return $name;
         }
 
-        throw BadMethodCallException::badMethodCall($name);
+        $method = 'call' . ucfirst($name);
+
+        if (!method_exists($this, $method)) {
+            throw BadMethodCallException::badMethodCall($name);
+        }
+
+        return $method;
     }
 }
