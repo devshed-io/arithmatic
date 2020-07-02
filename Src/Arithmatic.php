@@ -191,7 +191,7 @@ class Arithmatic
             foreach ($methods as $method => $argument) {
                 $this->__call(
                     is_string($method) ? $method : $argument,
-                    is_string($method) ? [$argument] : [],
+                    is_string($method) ? [$argument] : []
                 );
             }
         } else {
