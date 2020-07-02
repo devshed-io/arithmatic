@@ -187,15 +187,22 @@ class Arithmatic
             return call_user_func_array($methods, [$this]);
         }
 
-        if (is_array($methods)) {
-            foreach ($methods as $method => $argument) {
-                $this->__call(
-                    is_string($method) ? $method : $argument,
-                    is_string($method) ? [$argument] : [],
-                );
-            }
-        } else {
-            $this->__call($methods, []);
+        switch (true) {
+            case is_array($methods):
+                foreach ($methods as $method => $argument) {
+                    $this->__call(
+                        is_string($method) ? $method : $argument,
+                        is_string($method) ? [$argument] : []
+                    );
+                }
+                break;
+
+            case is_string($methods):
+                $this->__call($methods, []);
+                break;
+
+            case is_numeric($methods):
+                $this->value = $methods;
         }
 
         return $this;
