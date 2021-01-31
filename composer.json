@@ -1,6 +1,12 @@
 {
     "name": "devshed-io/arithmatic",
     "description": "Chainable math methods in php",
+    "keywords": [
+        "library",
+        "maths",
+        "equations",
+        "fluent"
+    ],
     "type": "library",
     "license": "MIT",
     "minimum-stability": "dev",
