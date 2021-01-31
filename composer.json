@@ -17,6 +17,9 @@
             "email": "charlesrbowen93@gmail.com"
         }
     ],
+    "scripts": {
+        "test": "./vendor/bin/phpunit --testdox"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.0"
     },
