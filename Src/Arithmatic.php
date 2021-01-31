@@ -2,7 +2,6 @@
 
 namespace Devshed\Arithmatic;
 
-
 use Closure;
 use Devshed\Arithmatic\Exceptions\BadMethodCallException;
 
@@ -30,7 +29,7 @@ class Arithmatic
     /**
      * @param int|float $value
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public static function make($value)
     {
@@ -40,7 +39,7 @@ class Arithmatic
     /**
      * @param int|float $value
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public static function start($value)
     {
@@ -50,7 +49,7 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $value
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function callAdd($value)
     {
@@ -76,7 +75,7 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $value
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function callSubtract($value)
     {
@@ -92,7 +91,7 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $by
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function callDivide($by)
     {
@@ -108,7 +107,7 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $from
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function callPercentageChange($from)
     {
@@ -124,7 +123,7 @@ class Arithmatic
     /**
      * @param Arithmatic|int|float $by
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function callMultiply($by)
     {
@@ -141,7 +140,7 @@ class Arithmatic
      * @param int $precision
      * @param int $mode
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function round(int $precision = 0, $mode = PHP_ROUND_HALF_UP)
     {
@@ -155,7 +154,7 @@ class Arithmatic
      * @param mixed $callable
      * @param mixed $fallback
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      */
     public function when($condition, $callable, $fallback = null)
     {
@@ -177,7 +176,7 @@ class Arithmatic
     /**
      * @param $methods
      *
-     * @return Arithmatic
+     * @return \Devshed\Arithmatic\Arithmatic
      *
      * @throws BadMethodCallException
      */
