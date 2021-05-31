@@ -11,6 +11,8 @@ class ArithmaticTest extends TestCase
 {
     public function testItCanBeCalledFromAStandaloneFunction()
     {
+        include '/app/Src/Functions.php';
+
         $number = arithmatic(5);
 
         $this->assertInstanceOf(Arithmatic::class, $number);
