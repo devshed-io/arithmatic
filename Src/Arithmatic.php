@@ -54,23 +54,9 @@ class Arithmatic
      */
     public function callAdd($value)
     {
-        if ($value instanceof Arithmatic) { // Todo: Piped call ?
-            $value = $value->output();
-        }
-
-        $this->value += $value;
+        $this->value = $this->getInternalValue() + (string) $value;
 
         return $this;
-    }
-
-    /**
-     * Output the value
-     *
-     * @return int|float
-     */
-    public function output()
-    {
-        return $this->value;
     }
 
     /**
@@ -80,11 +66,7 @@ class Arithmatic
      */
     public function callSubtract($value)
     {
-        if ($value instanceof Arithmatic) { // Todo: Piped call ?
-            $value = $value->output();
-        }
-
-        $this->value -= $value;
+        $this->value = $this->getInternalValue() - (string) $value;
 
         return $this;
     }
@@ -96,11 +78,7 @@ class Arithmatic
      */
     public function callDivide($by)
     {
-        if ($by instanceof Arithmatic) { // Todo: Piped call ?
-            $by = $by->output();
-        }
-
-        $this->value /= $by;
+        $this->value = $this->getInternalValue() / (string) $by;
 
         return $this;
     }
@@ -112,11 +90,7 @@ class Arithmatic
      */
     public function callPercentageChange($from)
     {
-        if ($from instanceof Arithmatic) { // Todo: Piped call ?
-            $from = $from->output();
-        }
-
-        $this->value = ($this->value - $from) / abs($from) * 100;
+        $this->value = ($this->getInternalValue() - (string) $from) / abs((string) $from) * 100;
 
         return $this;
     }
@@ -128,11 +102,7 @@ class Arithmatic
      */
     public function callPercentageOf($total)
     {
-        if ($total instanceof Arithmatic) { // Todo: Piped call ?
-            $total = $total->output();
-        }
-
-        $this->value = $this->value / $total * 100;
+        $this->value = $this->getInternalValue() / (string) $total * 100;
 
         return $this;
     }
@@ -144,11 +114,7 @@ class Arithmatic
      */
     public function callMultiply($by)
     {
-        if ($by instanceof Arithmatic) { // Todo: Piped call ?
-            $by = $by->output();
-        }
-
-        $this->value = $this->value * $by;
+        $this->value = $this->getInternalValue() * (string) $by;
 
         return $this;
     }
@@ -161,9 +127,19 @@ class Arithmatic
      */
     public function round(int $precision = 0, $mode = PHP_ROUND_HALF_UP)
     {
-        $this->value = round($this->value, $precision, $mode);
+        $this->value = round($this->getInternalValue(), $precision, $mode);
 
         return $this;
+    }
+
+    /**
+     * Output the value
+     *
+     * @return int|float
+     */
+    public function output()
+    {
+        return $this->value;
     }
 
     /**
@@ -240,6 +216,14 @@ class Arithmatic
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) ($this->value instanceof Arithmatic ? $this->value->output() : $this->value);
+    }
+
+    /**
      * @param string $name
      *
      * @return string
@@ -259,5 +243,13 @@ class Arithmatic
         }
 
         return $method;
+    }
+
+    /**
+     * @return float
+     */
+    protected function getInternalValue()
+    {
+        return floatval($this->__toString());
     }
 }

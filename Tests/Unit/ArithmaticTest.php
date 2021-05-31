@@ -83,6 +83,14 @@ class ArithmaticTest extends TestCase
         $this->assertEquals(10.0, $number->output());
     }
 
+    public function testItCanCoerceArithmaticInstancesToBasicTypes()
+    {
+        $ten = Arithmatic::make(10);
+
+        $this->assertEquals(20, Arithmatic::make(10)->add($ten)->output());
+        $this->assertEquals(5, Arithmatic::make($ten)->percentageOf(Arithmatic::make(200))->output());
+    }
+
     public function testItCanRunStringReferencedMethods()
     {
         $number = Arithmatic
