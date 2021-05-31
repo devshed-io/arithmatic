@@ -17,15 +17,13 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: composer validate
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
+    - name: Setup PHP Action
+      uses: shivammathur/setup-php@2.11.0
       with:
         php-version: '7.4'
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+        ini-values: max_execution_time=60
+        coverage: xdebug    
+        tools: php-cs-fixer, phpunit
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
@@ -34,5 +32,5 @@ jobs:
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-    - name: Run test suite
-      run: composer run-script test
+#     - name: Run test suite
+#       run: composer run-script test
