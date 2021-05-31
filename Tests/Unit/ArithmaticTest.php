@@ -5,19 +5,8 @@ namespace Devshed\Arithmatic\Tests\Unit;
 use Devshed\Arithmatic\Arithmatic;
 use PHPUnit\Framework\TestCase;
 
-use function Devshed\Arithmatic\arithmatic;
-
 class ArithmaticTest extends TestCase
 {
-    public function testItCanBeCalledFromAStandaloneFunction()
-    {
-        include '/app/Src/Functions.php';
-
-        $number = arithmatic(5);
-
-        $this->assertInstanceOf(Arithmatic::class, $number);
-    }
-
     public function testItStartsWithANumber()
     {
         $this->assertEquals(5, Arithmatic::start(5)->output());
