@@ -6,11 +6,12 @@ use Closure;
 use Devshed\Arithmatic\Exceptions\BadMethodCallException;
 
 /**
- * @method Arithmatic percentageChange($value)
- * @method Arithmatic divide($value)
- * @method Arithmatic subtract($value)
- * @method Arithmatic add($value)
- * @method Arithmatic multiply($int)
+ * @method \Devshed\Arithmatic\Arithmatic percentageOf($value)
+ * @method \Devshed\Arithmatic\Arithmatic percentageChange($value)
+ * @method \Devshed\Arithmatic\Arithmatic divide($value)
+ * @method \Devshed\Arithmatic\Arithmatic subtract($value)
+ * @method \Devshed\Arithmatic\Arithmatic add($value)
+ * @method \Devshed\Arithmatic\Arithmatic multiply($int)
  */
 class Arithmatic
 {
@@ -116,6 +117,22 @@ class Arithmatic
         }
 
         $this->value = ($this->value - $from) / abs($from) * 100;
+
+        return $this;
+    }
+
+    /**
+     * @param Arithmatic|int|float $total
+     *
+     * @return \Devshed\Arithmatic\Arithmatic
+     */
+    public function callPercentageOf($total)
+    {
+        if ($total instanceof Arithmatic) { // Todo: Piped call ?
+            $total = $total->output();
+        }
+
+        $this->value = $this->value / $total * 100;
 
         return $this;
     }

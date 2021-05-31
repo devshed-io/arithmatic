@@ -68,10 +68,17 @@ class ArithmaticTest extends TestCase
         );
     }
 
+    public function testItPerformsPercentageOfTotal()
+    {
+        $this->assertEquals(
+            Arithmatic::make(50)->percentageOf(200)->output(),
+            25,
+        );
+    }
+
     public function testItRoundsAValue()
     {
-        $number = Arithmatic::make(9.6)
-            ->round();
+        $number = Arithmatic::make(9.6)->round();
 
         $this->assertEquals(10.0, $number->output());
     }
