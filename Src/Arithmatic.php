@@ -6,6 +6,13 @@ use Closure;
 use Devshed\Arithmatic\Exceptions\BadMethodCallException;
 
 /**
+ * @method \Devshed\Arithmatic\Arithmatic plus($value)
+ * @method \Devshed\Arithmatic\Arithmatic sum($value)
+ * @method \Devshed\Arithmatic\Arithmatic minus($value)
+ * @method \Devshed\Arithmatic\Arithmatic sub($value)
+ * @method \Devshed\Arithmatic\Arithmatic times($value)
+ * @method \Devshed\Arithmatic\Arithmatic x($value)
+ * @method \Devshed\Arithmatic\Arithmatic div($value)
  * @method \Devshed\Arithmatic\Arithmatic percentageOf($value)
  * @method \Devshed\Arithmatic\Arithmatic percentageChange($value)
  * @method \Devshed\Arithmatic\Arithmatic divide($value)
@@ -15,7 +22,26 @@ use Devshed\Arithmatic\Exceptions\BadMethodCallException;
  */
 class Arithmatic
 {
+    /**
+     * @var Arithmatic|int|float
+     */
     protected $value;
+
+    /**
+     * @var array
+     */
+    protected $aliases = [
+        'plus' => 'add',
+        'sum' => 'add',
+
+        'minus' => 'subtract',
+        'sub' => 'subtract',
+
+        'times' => 'multiply',
+        'x' => 'multiply',
+
+        'div' => 'divide',
+    ];
 
     /**
      * Number constructor.
@@ -236,7 +262,9 @@ class Arithmatic
             return $name;
         }
 
-        $method = 'call' . ucfirst($name);
+        $alias = $this->aliases[$name] ?? $name;
+
+        $method = 'call' . ucfirst($alias);
 
         if (!method_exists($this, $method)) {
             throw BadMethodCallException::badMethodCall($name);
