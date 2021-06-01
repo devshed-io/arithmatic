@@ -7,17 +7,15 @@
     <a href="https://packagist.org/packages/devshed-io/arithmatic"><img src="https://img.shields.io/packagist/dt/devshed-io/arithmatic" alt="Total Downloads"></a>
 </p>
 
-## About
-
 Chainable math methods for PHP. Designed to make working with math more fluent and easier to read.
 
-## Installation (via Composer)
+### Installation (via Composer)
 
 ```bash
 composer require devshed-io/arithmatic
 ```
 
-## Usage
+### Usage
 
 Basic usage allows you to chain methods for better readability:
 ```php
@@ -72,12 +70,12 @@ N.B. Unless you call `output`, arithmatic will provide an instance of itself. It
 - multiply
 - round
 
-## Testing (with Docker Compose)
+### Testing (with Docker Compose)
 
 ```bash
 docker-compose run --rm php vendor/bin/phpunit --testdox
 ```
 
-## License
+### License
 
 [MIT license](https://opensource.org/licenses/MIT)
