@@ -78,7 +78,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callAdd($value)
+    protected function callAdd($value)
     {
         $this->value = $this->getInternalValue() + (string) $value;
 
@@ -90,7 +90,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callSubtract($value)
+    protected function callSubtract($value)
     {
         $this->value = $this->getInternalValue() - (string) $value;
 
@@ -102,7 +102,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callDivide($by)
+    protected function callDivide($by)
     {
         $this->value = $this->getInternalValue() / (string) $by;
 
@@ -114,7 +114,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callPercentageChange($from)
+    protected function callPercentageChange($from)
     {
         $this->value = ($this->getInternalValue() - (string) $from) / abs((string) $from) * 100;
 
@@ -126,7 +126,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callPercentageOf($total)
+    protected function callPercentageOf($total)
     {
         $this->value = $this->getInternalValue() / (string) $total * 100;
 
@@ -138,7 +138,7 @@ class Arithmatic
      *
      * @return \Devshed\Arithmatic\Arithmatic
      */
-    public function callMultiply($by)
+    protected function callMultiply($by)
     {
         $this->value = $this->getInternalValue() * (string) $by;
 
