@@ -41,6 +41,9 @@ class Arithmatic
         'x' => 'multiply',
 
         'div' => 'divide',
+
+        'average' => 'mean',
+        'avg' => 'mean',
     ];
 
     /**
@@ -141,6 +144,20 @@ class Arithmatic
     protected function callMultiply($by)
     {
         $this->value = $this->getInternalValue() * (string) $by;
+
+        return $this;
+    }
+
+    /**
+     * @param Arithmatic|int|float $by
+     *
+     * @return \Devshed\Arithmatic\Arithmatic
+     */
+    protected function callMean()
+    {
+        $value = is_array($this->value) ? $this->value : [$this->value];
+
+        $this->value = array_sum($value) / count($value);
 
         return $this;
     }

@@ -68,6 +68,12 @@ class ArithmaticTest extends TestCase
         );
     }
 
+    public function testItCanCalculateMean()
+    {
+        $this->assertEquals(Arithmatic::make([1, 3, 8, 5, 3, 1, 2])->mean()->output(), 3.285714285714286);
+        $this->assertEquals(Arithmatic::make(15)->mean()->output(), 15);
+    }
+
     public function testItPerformsPercentageOfTotal()
     {
         $this->assertEquals(
@@ -205,5 +211,8 @@ class ArithmaticTest extends TestCase
 
         $this->assertEquals(250, Arithmatic::start(50)->times(5)->output());
         $this->assertEquals(250, Arithmatic::start(50)->x(5)->output());
+
+        $this->assertEquals(5, Arithmatic::start([5, 5, 5])->avg()->output());
+        $this->assertEquals(10, Arithmatic::start([5, 10, 15])->average()->output());
     }
 }
