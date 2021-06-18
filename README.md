@@ -68,6 +68,7 @@ N.B. Unless you call `output`, arithmatic will provide an instance of itself. It
 - subtract
 - add
 - multiply
+- mean
 - round
 
 ### Testing (with Docker Compose)
