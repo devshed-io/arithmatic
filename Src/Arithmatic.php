@@ -41,6 +41,9 @@ class Arithmatic
         'x' => 'multiply',
 
         'div' => 'divide',
+
+        'average' => 'mean',
+        'avg' => 'mean',
     ];
 
     /**

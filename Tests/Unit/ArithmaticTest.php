@@ -211,5 +211,8 @@ class ArithmaticTest extends TestCase
 
         $this->assertEquals(250, Arithmatic::start(50)->times(5)->output());
         $this->assertEquals(250, Arithmatic::start(50)->x(5)->output());
+
+        $this->assertEquals(5, Arithmatic::start([5, 5, 5])->avg()->output());
+        $this->assertEquals(10, Arithmatic::start([5, 10, 15])->average()->output());
     }
 }
