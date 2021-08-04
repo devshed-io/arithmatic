@@ -179,6 +179,14 @@ class Arithmatic
     }
 
     /**
+     * @return \Devshed\Arithmatic\Arithmatic
+     */
+    public function clone()
+    {
+        return clone $this;
+    }
+
+    /**
      * @param int $precision
      * @param int $mode
      *
