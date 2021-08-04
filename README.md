@@ -70,6 +70,8 @@ N.B. Unless you call `output`, arithmatic will provide an instance of itself. It
 - multiply
 - mean
 - round
+- clamp
+- clone
 
 ### Testing (with Docker Compose)
 
