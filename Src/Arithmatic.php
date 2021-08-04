@@ -16,6 +16,7 @@ use Devshed\Arithmatic\Exceptions\BadMethodCallException;
  * @method \Devshed\Arithmatic\Arithmatic percentageOf($value)
  * @method \Devshed\Arithmatic\Arithmatic percentageChange($value)
  * @method \Devshed\Arithmatic\Arithmatic divide($value)
+ * @method \Devshed\Arithmatic\Arithmatic divideBy($value)
  * @method \Devshed\Arithmatic\Arithmatic subtract($value)
  * @method \Devshed\Arithmatic\Arithmatic add($value)
  * @method \Devshed\Arithmatic\Arithmatic multiply($int)
@@ -41,6 +42,7 @@ class Arithmatic
         'x' => 'multiply',
 
         'div' => 'divide',
+        'divideBy' => 'divide',
 
         'average' => 'mean',
         'avg' => 'mean',
