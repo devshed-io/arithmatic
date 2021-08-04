@@ -20,6 +20,7 @@ use Devshed\Arithmatic\Exceptions\BadMethodCallException;
  * @method \Devshed\Arithmatic\Arithmatic subtract($value)
  * @method \Devshed\Arithmatic\Arithmatic add($value)
  * @method \Devshed\Arithmatic\Arithmatic multiply($int)
+ * @method \Devshed\Arithmatic\Arithmatic clamp($min, $max)
  */
 class Arithmatic
 {
@@ -160,6 +161,19 @@ class Arithmatic
         $value = is_array($this->value) ? $this->value : [$this->value];
 
         $this->value = array_sum($value) / count($value);
+
+        return $this;
+    }
+
+    /**
+     * @param Arithmatic|int|float $min
+     * @param Arithmatic|int|float $max
+     *
+     * @return \Devshed\Arithmatic\Arithmatic
+     */
+    protected function callClamp($min, $max)
+    {
+        $this->value = max((string) $min, min((string) $max, $this->getInternalValue()));
 
         return $this;
     }
