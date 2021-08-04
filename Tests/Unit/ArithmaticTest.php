@@ -208,6 +208,7 @@ class ArithmaticTest extends TestCase
         $this->assertEquals(-5, Arithmatic::start(5)->minus(10)->output());
 
         $this->assertEquals(10, Arithmatic::start(50)->div(5)->output());
+        $this->assertEquals(10, Arithmatic::start(50)->divideBy(5)->output());
 
         $this->assertEquals(250, Arithmatic::start(50)->times(5)->output());
         $this->assertEquals(250, Arithmatic::start(50)->x(5)->output());
