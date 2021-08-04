@@ -91,9 +91,22 @@ class ArithmaticTest extends TestCase
 
     public function testItClampsAValue()
     {
-        $this->assertEquals(10, Arithmatic::start(15)->clamp(5, 10)->output());
-        $this->assertEquals(18, Arithmatic::start(15)->clamp(18, 20)->output());
-        $this->assertEquals(15, Arithmatic::start(15)->clamp(10, 20)->output());
+        $number = Arithmatic::start(15);
+
+        $this->assertEquals(10, $number->clone()->clamp(5, 10)->output());
+        $this->assertEquals(18, $number->clone()->clamp(18, 20)->output());
+        $this->assertEquals(15, $number->clone()->clamp(10, 20)->output());
+    }
+
+    public function testItCanCloneAnInstance()
+    {
+        $number = Arithmatic::start(5);
+
+        $this->assertTrue(method_exists($number, 'clone'));
+        $this->assertInstanceOf(Arithmatic::class, $number->clone());
+
+        $this->assertEquals(10, $number->clone()->add(5)->output());
+        $this->assertEquals(10, $number->add(5)->output());
     }
 
     public function testItCanCoerceArithmaticInstancesToBasicTypes()
