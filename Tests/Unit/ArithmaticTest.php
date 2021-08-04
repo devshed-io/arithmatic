@@ -89,6 +89,13 @@ class ArithmaticTest extends TestCase
         $this->assertEquals(10.0, $number->output());
     }
 
+    public function testItClampsAValue()
+    {
+        $this->assertEquals(10, Arithmatic::start(15)->clamp(5, 10)->output());
+        $this->assertEquals(18, Arithmatic::start(15)->clamp(18, 20)->output());
+        $this->assertEquals(15, Arithmatic::start(15)->clamp(10, 20)->output());
+    }
+
     public function testItCanCoerceArithmaticInstancesToBasicTypes()
     {
         $ten = Arithmatic::make(10);
